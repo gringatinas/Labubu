@@ -2,7 +2,7 @@
 <html lang="pt-BR">
 <head>
   <meta charset="UTF-8">
-  <title>Página de Conversão</title>
+  <title>Brenda Becker VIP</title>
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
 
   <!-- Meta Pixel Code -->
@@ -24,40 +24,72 @@
   <style>
     body {
       font-family: Arial, sans-serif;
-      background: #111;
+      background: radial-gradient(circle at top, #1a1a1a, #000);
       color: #fff;
+      height: 100vh;
+      margin: 0;
       display: flex;
       align-items: center;
       justify-content: center;
-      height: 100vh;
-      margin: 0;
+    }
+    .container {
+      max-width: 420px;
+      width: 90%;
+      text-align: center;
+      background: rgba(0,0,0,0.65);
+      border-radius: 18px;
+      padding: 32px 24px;
+      box-shadow: 0 0 40px rgba(255,0,128,0.15);
+    }
+    h1 {
+      font-size: 28px;
+      margin-bottom: 16px;
+      color: #ff4da6;
+    }
+    p {
+      font-size: 18px;
+      line-height: 1.5;
+      margin-bottom: 28px;
     }
     button {
-      padding: 18px 32px;
-      font-size: 18px;
-      border: none;
-      border-radius: 8px;
-      background: #00c853;
-      color: #000;
-      cursor: pointer;
+      width: 100%;
+      padding: 18px;
+      font-size: 20px;
       font-weight: bold;
+      border: none;
+      border-radius: 12px;
+      background: linear-gradient(135deg, #ff2f92, #ff005d);
+      color: #fff;
+      cursor: pointer;
+      box-shadow: 0 10px 30px rgba(255,0,93,0.4);
     }
     button:hover {
-      background: #00e676;
+      transform: scale(1.03);
+      box-shadow: 0 12px 40px rgba(255,0,93,0.6);
     }
   </style>
 </head>
 
 <body>
 
-  <button onclick="dispararPurchase()">CLIQUE AQUI</button>
+  <div class="container">
+    <h1>Brenda Becker VIP</h1>
+
+    <p>
+      Parabéns pelo seu acesso, amor 💕<br><br>
+      Clica abaixo pra entrar no meu <strong>grupinho VIP</strong><br>
+      que já tá te esperando 😍😈
+    </p>
+
+    <button onclick="dispararPurchase()">
+      ENTRAR AGORA 🔥
+    </button>
+  </div>
 
   <script>
     function getPurchaseValue() {
       const params = new URLSearchParams(window.location.search);
       const value = params.get('value');
-
-      // fallback se não vier valor na URL
       return value ? parseFloat(value) : 14.99;
     }
 
@@ -69,12 +101,10 @@
         currency: 'BRL'
       });
 
-      console.log('Purchase enviado:', valueFinal);
-
-      // opcional: redirecionar depois do disparo
-      // setTimeout(() => {
-      //   window.location.href = 'https://t.me/+ZU5E6IeyUgJiNjYx';
-      // }, 500);
+      // redirect após garantir envio do evento
+      setTimeout(function() {
+        window.location.href = 'https://t.me/+ZU5E6IeyUgJiNjYx';
+      }, 500);
     }
   </script>
 
