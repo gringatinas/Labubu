@@ -1,89 +1,82 @@
-  </body>
-</html>
 <!DOCTYPE html>
 <html lang="pt-BR">
 <head>
   <meta charset="UTF-8">
+  <title>Página de Conversão</title>
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Acesse o produto clicando abaixo</title>
-  <meta name="robots" content="noindex,nofollow" />
 
- <!-- Google Tag Manager -->
-<script>(function(w,d,s,l,i){w[l]=w[l]||[];w[l].push({'gtm.start':
-new Date().getTime(),event:'gtm.js'});var f=d.getElementsByTagName(s)[0],
-j=d.createElement(s),dl=l!='dataLayer'?'&l='+l:'';j.async=true;j.src=
-'https://www.googletagmanager.com/gtm.js?id='+i+dl;f.parentNode.insertBefore(j,f);
-})(window,document,'script','dataLayer','GTM-5CTJVBBW');</script>
-<!-- End Google Tag Manager -->
+  <!-- Meta Pixel Code -->
+  <script>
+  !function(f,b,e,v,n,t,s)
+  {if(f.fbq)return;n=f.fbq=function(){n.callMethod?
+  n.callMethod.apply(n,arguments):n.queue.push(arguments)};
+  if(!f._fbq)f._fbq=n;n.push=n;n.loaded=!0;n.version='2.0';
+  n.queue=[];t=b.createElement(e);t.async=!0;
+  t.src=v;s=b.getElementsByTagName(e)[0];
+  s.parentNode.insertBefore(t,s)}(window, document,'script',
+  'https://connect.facebook.net/en_US/fbevents.js');
 
-<!-- Google Tag Manager (noscript) -->
-<noscript><iframe src="https://www.googletagmanager.com/ns.html?id=GTM-5CTJVBBW"
-height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
-<!-- End Google Tag Manager (noscript) -->
-  
-  <!-- Pixel UTMify -->
- <script
-  src="https://cdn.utmify.com.br/scripts/utms/latest.js"
-  data-utmify-prevent-xcod-sck
-  data-utmify-prevent-subids
-  async
-  defer
-></script>
-  <!-- End Pixel UTMify -->
-
-<!-- Meta Pixel Code -->
-<script>
-!function(f,b,e,v,n,t,s)
-{if(f.fbq)return;n=f.fbq=function(){n.callMethod?
-n.callMethod.apply(n,arguments):n.queue.push(arguments)};
-if(!f._fbq)f._fbq=n;n.push=n;n.loaded=!0;n.version='2.0';
-n.queue=[];t=b.createElement(e);t.async=!0;
-t.src=v;s=b.getElementsByTagName(e)[0];
-s.parentNode.insertBefore(t,s)}(window, document,'script',
-'https://connect.facebook.net/en_US/fbevents.js');
-fbq('init', '652474300856231');
-fbq('track', 'Purchase');
-</script>
-<noscript><img height="1" width="1" style="display:none"
-src="https://www.facebook.com/tr?id=652474300856231&ev=Purchase&noscript=1"
-/></noscript>
-<!-- End Meta Pixel Code -->
+  fbq('init', '800612109674856');
+  fbq('track', 'PageView');
+  </script>
+  <!-- End Meta Pixel Code -->
 
   <style>
     body {
-      margin:0;
-      height:100vh;
-      display:flex;
-      flex-direction:column;
-      justify-content:center;
-      align-items:center;
-      background:#fff;
       font-family: Arial, sans-serif;
+      background: #111;
+      color: #fff;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      height: 100vh;
+      margin: 0;
     }
-    h1 {
-      font-size: 28px;
-      margin-bottom: 40px;
-      color:#111;
-      text-align:center;
+    button {
+      padding: 18px 32px;
+      font-size: 18px;
+      border: none;
+      border-radius: 8px;
+      background: #00c853;
+      color: #000;
+      cursor: pointer;
+      font-weight: bold;
     }
-    a.btn {
-      display:inline-block;
-      padding:18px 40px;
-      font-size:20px;
-      font-weight:bold;
-      background:#111;
-      color:#fff;
-      border-radius:10px;
-      text-decoration:none;
-      transition: background .2s ease, transform .1s ease;
+    button:hover {
+      background: #00e676;
     }
-    a.btn:hover { background:#333; }
-    a.btn:active { transform:scale(.97); }
   </style>
 </head>
-<body>
-  <h1>Acesse o Grupo VIP</h1>
-  <a class="btn" href="https://t.me/+NIO5V9mzW6swYWYx" target="_blank" rel="noopener">
-    CLIQUE AQUI
-  </a>
 
+<body>
+
+  <button onclick="dispararPurchase()">CLIQUE AQUI</button>
+
+  <script>
+    function getPurchaseValue() {
+      const params = new URLSearchParams(window.location.search);
+      const value = params.get('value');
+
+      // fallback se não vier valor na URL
+      return value ? parseFloat(value) : 14.99;
+    }
+
+    function dispararPurchase() {
+      const valueFinal = getPurchaseValue();
+
+      fbq('track', 'Purchase', {
+        value: valueFinal,
+        currency: 'BRL'
+      });
+
+      console.log('Purchase enviado:', valueFinal);
+
+      // opcional: redirecionar depois do disparo
+      // setTimeout(() => {
+      //   window.location.href = 'https://t.me/+ZU5E6IeyUgJiNjYx';
+      // }, 500);
+    }
+  </script>
+
+</body>
+</html>
