@@ -5,19 +5,35 @@
   <title>Yasmim Silva VIP</title>
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
 
-  <!-- TikTok Pixel Code Start -->
-<script>
-!function (w, d, t) {
-  w.TiktokAnalyticsObject=t;var ttq=w[t]=w[t]||[];ttq.methods=["page","track","identify","instances","debug","on","off","once","ready","alias","group","enableCookie","disableCookie","holdConsent","revokeConsent","grantConsent"],ttq.setAndDefer=function(t,e){t[e]=function(){t.push([e].concat(Array.prototype.slice.call(arguments,0)))}};for(var i=0;i<ttq.methods.length;i++)ttq.setAndDefer(ttq,ttq.methods[i]);ttq.instance=function(t){for(
-var e=ttq._i[t]||[],n=0;n<ttq.methods.length;n++)ttq.setAndDefer(e,ttq.methods[n]);return e},ttq.load=function(e,n){var r="https://analytics.tiktok.com/i18n/pixel/events.js",o=n&&n.partner;ttq._i=ttq._i||{},ttq._i[e]=[],ttq._i[e]._u=r,ttq._t=ttq._t||{},ttq._t[e]=+new Date,ttq._o=ttq._o||{},ttq._o[e]=n||{};n=document.createElement("script")
-;n.type="text/javascript",n.async=!0,n.src=r+"?sdkid="+e+"&lib="+t;e=document.getElementsByTagName("script")[0];e.parentNode.insertBefore(n,e)};
+  <!-- TikTok Pixel Code -->
+  <script>
+  !function (w, d, t) {
+    w.TiktokAnalyticsObject=t;var ttq=w[t]=w[t]||[];
+    ttq.methods=["page","track","identify","instances","debug","on","off","once","ready","alias","group","enableCookie","disableCookie","holdConsent","revokeConsent","grantConsent"];
+    ttq.setAndDefer=function(t,e){t[e]=function(){t.push([e].concat(Array.prototype.slice.call(arguments,0)))}}; 
+    for(var i=0;i<ttq.methods.length;i++)ttq.setAndDefer(ttq,ttq.methods[i]);
+    ttq.instance=function(t){
+      for(var e=ttq._i[t]||[],n=0;n<ttq.methods.length;n++)ttq.setAndDefer(e,ttq.methods[n]);
+      return e
+    };
+    ttq.load=function(e,n){
+      var r="https://analytics.tiktok.com/i18n/pixel/events.js";
+      ttq._i=ttq._i||{},ttq._i[e]=[],ttq._i[e]._u=r;
+      ttq._t=ttq._t||{},ttq._t[e]=+new Date;
+      ttq._o=ttq._o||{},ttq._o[e]=n||{};
+      n=document.createElement("script");
+      n.type="text/javascript";
+      n.async=!0;
+      n.src=r+"?sdkid="+e+"&lib="+t;
+      e=document.getElementsByTagName("script")[0];
+      e.parentNode.insertBefore(n,e)
+    };
 
-
-  ttq.load('D6HL4URC77UCPJEO0RF0');
-  ttq.page();
-}(window, document, 'ttq');
-</script>
-<!-- TikTok Pixel Code End -->
+    ttq.load('D6HL4URC77UCPJEO0RF0');
+    ttq.page();
+  }(window, document, 'ttq');
+  </script>
+  <!-- End TikTok Pixel -->
 
   <style>
     body {
@@ -60,6 +76,7 @@ var e=ttq._i[t]||[],n=0;n<ttq.methods.length;n++)ttq.setAndDefer(e,ttq.methods[n
       color: #fff;
       cursor: pointer;
       box-shadow: 0 10px 30px rgba(255,0,93,0.4);
+      transition: all 0.2s ease;
     }
     button:hover {
       transform: scale(1.03);
@@ -79,7 +96,7 @@ var e=ttq._i[t]||[],n=0;n<ttq.methods.length;n++)ttq.setAndDefer(e,ttq.methods[n
       que já tá te esperando 😍😈
     </p>
 
-    <button onclick="dispararPurchase()">
+    <button onclick="dispararEventos()">
       ENTRAR AGORA 🔥
     </button>
   </div>
@@ -91,18 +108,22 @@ var e=ttq._i[t]||[],n=0;n<ttq.methods.length;n++)ttq.setAndDefer(e,ttq.methods[n
       return value ? parseFloat(value) : 14.99;
     }
 
-    function dispararPurchase() {
+    function dispararEventos() {
       const valueFinal = getPurchaseValue();
 
-      fbq('track', 'Purchase', {
+      // Evento de clique (micro conversão)
+      ttq.track('ClickButton');
+
+      // Evento principal de compra
+      ttq.track('CompletePayment', {
         value: valueFinal,
         currency: 'BRL'
       });
 
-      // redirect após garantir envio do evento
+      // Redirecionamento com delay seguro
       setTimeout(function() {
         window.location.href = 'https://t.me/+fXv56a_K9GphYWE5';
-      }, 500);
+      }, 1000);
     }
   </script>
 
