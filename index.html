@@ -2,119 +2,88 @@
 <html lang="pt-BR">
 <head>
   <meta charset="UTF-8">
-  <title>Yasmim Silva VIP</title>
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  
+  <title>Yasmim VIP</title>
+
+ <!-- Meta Pixel Code -->
+  <script>
+  !function(f,b,e,v,n,t,s)
+  {if(f.fbq)return;n=f.fbq=function(){n.callMethod?
+  n.callMethod.apply(n,arguments):n.queue.push(arguments)};
+  if(!f._fbq)f._fbq=n;n.push=n;n.loaded=!0;n.version='2.0';
+  n.queue=[];t=b.createElement(e);t.async=!0;
+  t.src=v;s=b.getElementsByTagName(e)[0];
+  s.parentNode.insertBefore(t,s)}(window, document,'script',
+  'https://connect.facebook.net/en_US/fbevents.js');
+  fbq('init', '1602934124255366');
+  fbq('track', 'PageView');
+  </script>
+  <noscript>
+    <img height="1" width="1" style="display:none"
+    src="https://www.facebook.com/tr?id=1602934124255366&ev=PageView&noscript=1"/>
+  </noscript>
+  <!-- End Meta Pixel Code -->
+
   <style>
-    body {
-      font-family: Arial, sans-serif;
-      background: radial-gradient(circle at top, #1a1a1a, #000);
-      color: #fff;
-      height: 100vh;
+    * {
       margin: 0;
+      padding: 0;
+      box-sizing: border-box;
+      font-family: Arial, sans-serif;
+    }
+
+    body {
+      height: 100vh;
       display: flex;
-      align-items: center;
       justify-content: center;
-    }
-    .container {
-      max-width: 420px;
-      width: 90%;
-      text-align: center;
-      background: rgba(0,0,0,0.65);
-      border-radius: 18px;
-      padding: 32px 24px;
-      box-shadow: 0 0 40px rgba(255,0,128,0.15);
-    }
-    h1 {
-      font-size: 28px;
-      margin-bottom: 16px;
-      color: #ff4da6;
-    }
-    p {
-      font-size: 18px;
-      line-height: 1.5;
-      margin-bottom: 28px;
-    }
-    button {
-      width: 100%;
-      padding: 18px;
-      font-size: 20px;
-      font-weight: bold;
-      border: none;
-      border-radius: 12px;
-      background: linear-gradient(135deg, #ff2f92, #ff005d);
+      align-items: center;
+      background: linear-gradient(135deg, #0a1f44, #1e3a8a, #2563eb);
       color: #fff;
-      cursor: pointer;
-      box-shadow: 0 10px 30px rgba(255,0,93,0.4);
-      transition: all 0.2s ease;
     }
-    button:hover {
-      transform: scale(1.03);
-      box-shadow: 0 12px 40px rgba(255,0,93,0.6);
+
+    .container {
+      text-align: center;
+      padding: 40px;
+      background: rgba(255, 255, 255, 0.05);
+      border-radius: 20px;
+      backdrop-filter: blur(10px);
+      box-shadow: 0 10px 30px rgba(0,0,0,0.3);
+    }
+
+    h1 {
+      font-size: 32px;
+      margin-bottom: 30px;
+      letter-spacing: 1px;
+    }
+
+    .btn {
+      display: inline-block;
+      padding: 15px 35px;
+      font-size: 18px;
+      color: #fff;
+      background: linear-gradient(45deg, #3b82f6, #60a5fa);
+      border: none;
+      border-radius: 50px;
+      text-decoration: none;
+      transition: all 0.3s ease;
+      box-shadow: 0 5px 15px rgba(59,130,246,0.4);
+    }
+
+    .btn:hover {
+      transform: translateY(-3px);
+      box-shadow: 0 10px 25px rgba(59,130,246,0.6);
+      background: linear-gradient(45deg, #2563eb, #3b82f6);
     }
   </style>
-
-  <!-- Meta Pixel Code -->
-<script>
-!function(f,b,e,v,n,t,s)
-{if(f.fbq)return;n=f.fbq=function(){n.callMethod?
-n.callMethod.apply(n,arguments):n.queue.push(arguments)};
-if(!f._fbq)f._fbq=n;n.push=n;n.loaded=!0;n.version='2.0';
-n.queue=[];t=b.createElement(e);t.async=!0;
-t.src=v;s=b.getElementsByTagName(e)[0];
-s.parentNode.insertBefore(t,s)}(window, document,'script',
-'https://connect.facebook.net/en_US/fbevents.js');
-fbq('init', '1602934124255366');
-fbq('track', 'PageView');
-</script>
-<noscript><img height="1" width="1" style="display:none"
-src="https://www.facebook.com/tr?id=1602934124255366&ev=PageView&noscript=1"
-/></noscript>
-<!-- End Meta Pixel Code -->
-
 </head>
-
 <body>
-  
-  <div class="container">
-    <h1>Yasmim Silva VIP</h1>
-
-    <p>
-      Parabéns pelo seu acesso, amor 💕<br><br>
-      Clica abaixo pra entrar no meu <strong>grupinho VIP</strong><br>
-      que já tá te esperando 😍😈
-    </p>
-
-    <button onclick="dispararEventos()">
-      ENTRAR AGORA 🔥
-    </button>
-  </div>
-
-  <script>
-    function getPurchaseValue() {
-      const params = new URLSearchParams(window.location.search);
-      const value = params.get('value');
-      return value ? parseFloat(value) : 14.99;
-    }
-
-    function dispararEventos() {
-      const valueFinal = getPurchaseValue();
-
-      // Evento de clique (micro conversão)
-      ttq.track('ClickButton');
-
-      // Evento principal de compra
-      ttq.track('CompletePayment', {
-        value: valueFinal,
-        currency: 'BRL'
-      });
-
-      // Redirecionamento com delay seguro
-      setTimeout(function() {
-        window.location.href = 'https://t.me/+fXv56a_K9GphYWE5';
-      }, 1000);
-    }
+ <script>
+    fbq('track', 'Purchase', {currency: "BRL", value: 30.00});
   </script>
+  <div class="container">
+    <h1>Yasmim VIP</h1>
+  <a href="https://t.me/+fXv56a_K9GphYWE5" class="btn">Acesse aqui</a>
+  </div>
 
 </body>
 </html>
